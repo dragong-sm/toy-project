@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <title>my-quote</title>
+    <!-- js 파일 적용 -->
+    <script src="index.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+      /* 전체 글꼴 적용 */
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* body 태그 */
+      body {
+        background-image: url("https://media.architecturaldigest.com/photos/5903ad5c1732ef7d3c2b9e38/4:3/w_2663,h_1997,c_limit/5%20Seaside%20Towns%20in%20Italy.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        /* 상위 속성에서 글자색 변경 >> 아래 속성 모두 변경됨 */
+      }
+
+      .time {
+        font-size: 80px;
+        font-weight: bold;
+      }
+
+      .greeting {
+        font-size: 50px;
+      }
+
+      .todo {
+        font-size: 30px;
+      }
+
+      .author {
+        font-size: 25px;
+        font-style: italic;
+      }
+
+      .content {
+        font-size: 20px;
+      }
+
+      .main {
+        width: 100vw;
+        /* 가로 꽉 차게 */
+        height: 80vh;
+        /* 세로의 80% */
+
+        /* 가운데 정렬 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .quote {
+        width: 100vw;
+        /* 가로 꽉 차게 */
+        height: 20vh;
+        /* 세로의 20% */
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <!-- 배경, (시간, 인삿말, 오늘 할 일), 명언 -->
+  <body>
+    <!-- body 태그가 배경 -->
+    <body>
+      <div class="main">
+        <div id="time" class="time"></div>
+        <div class="greeting">Hello, Dragong!</div>
+        <div class="todo">지원동기 작성하기</div>
+      </div>
+      <div class="quote">
+        <div id="author" class="author">- author -</div>
+        <div id="content" class="content">" content "</div>
+      </div>
+    </body>
+  </body>
+</html>
