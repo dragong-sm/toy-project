@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>four-cut</title>
+    <style>
+      /* 이서윤체 폰트 적용 */
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* body태그에 css 요소 부여 */
+      body {
+        font-family: "LeeSeoyun";
+        /* 전체 폰트를 이서윤 폰트 */
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        /* 가운데에 정렬 */
+        background-image: url("./background.png");
+        /* 백그라운드는 url로 설정 */
+      }
+
+      /* container : 큰 구조 */
+      .container {
+        width: 390px;
+        background-color: skyblue;
+        height: 100%;
+        /* body 태그의 높이 만큼 차지 100% ( container를 둘러싸고 있는 영역 ) */
+      }
+
+      /* 사진영역 */
+      .photos {
+        margin-top: 30px;
+      }
+
+      /* 각 사진 프레임 css */
+      .photo-frame {
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+
+        position: relative;
+        /* 부모속성 ( 설명글 가운데로 놓으려구 ) */
+
+        cursor: pointer;
+      }
+
+      /* footer 영역 : 제목, 날짜 */
+      .footer {
+        display: flex;
+        flex-direction: column;
+        /* 밑으로 내리기 */
+        align-items: center;
+        /* 가운데 오도록 */
+      }
+
+      /* footer 제목 */
+      .f-title {
+        color: white;
+        font-size: 25px;
+        font-weight: 900;
+      }
+
+      /* footer 날짜 */
+      .f-date {
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      /* 각 프레임에 사진 넣기 */
+      #img1 {
+        background-image: url("잠만보.png");
+        /* 프레임에 가로 너비 맞춰서  */
+        background-size: cover;
+        /* 가운데정렬  */
+        background-position: center;
+      }
+      #img2 {
+        background-image: url("메타몽.png");
+        background-size: cover;
+        background-position: center;
+      }
+      #img3 {
+        background-image: url("고라파덕.png");
+        background-size: cover;
+        background-position: center;
+      }
+      #img4 {
+        background-image: url("몬스터볼.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* 이미지 설명글 */
+      .photo-description {
+        color: white;
+        background-color: black;
+        width: fit-content;
+        /* 가로 너비는 내부 콘텐츠에 딱 맞게! */
+        padding: 0 20px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+
+        position: absolute;
+        /* 부모속성 기준으로 자식 */
+        bottom: 0;
+        /* bottom 0 만큼 올려줘 */
+        /* margin-bottom 10px 넣어줘서 조금 위에 있음 */
+        transform: translate(-50%);
+        left: 50%;
+        /*  가운데 정렬! → (trnasform과 left는 set메뉴) */
+
+        opacity: 0;
+      }
+
+      .showText {
+        opacity: 0;
+      }
+
+      .hideText {
+        opacity: 1;
+        transition: opacity 0.5s linear;
+        /* transition : 나타날 때 0.5초동안 천천히 나타나는 효과를 줘라 */
+      }
+
+      .iconDesc {
+        font-size: 10px;
+      }
+    </style>
+    <script>
+      // 텍스트가 보여지는 기능
+      // 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+      // 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+      function showText(number) {
+        if (number === 1) {
+          document.querySelector("#desc1").classList.remove("hideText");
+          document.querySelector("#desc1").classList.add("showText");
+        } else if (number === 2) {
+          document.querySelector("#desc2").classList.remove("hideText");
+          document.querySelector("#desc2").classList.add("showText");
+        } else if (number === 3) {
+          document.querySelector("#desc3").classList.remove("hideText");
+          document.querySelector("#desc3").classList.add("showText");
+        } else {
+          document.querySelector("#desc4").classList.remove("hideText");
+          document.querySelector("#desc4").classList.add("showText");
+        }
+      }
+
+      // 텍스트가 감춰지는 기능
+      // 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+      // 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+      function hideText(number) {
+        if (number === 1) {
+          document.querySelector("#desc1").classList.remove("showText");
+          document.querySelector("#desc1").classList.add("hideText");
+        } else if (number === 2) {
+          document.querySelector("#desc2").classList.remove("showText");
+          document.querySelector("#desc2").classList.add("hideText");
+        } else if (number === 3) {
+          document.querySelector("#desc3").classList.remove("showText");
+          document.querySelector("#desc3").classList.add("hideText");
+        } else {
+          document.querySelector("#desc4").classList.remove("showText");
+          document.querySelector("#desc4").classList.add("hideText");
+        }
+      }
+
+      // 클릭 기능
+      // 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+      function alertText(number) {
+        alert(`${number}번째 추억이에요! 눌러주셔서 감사합니다 :)`);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 구조를 잡을 때, 미리 선택자(id, class) 부여해놓기 -->
+    <!-- 태그 자체도 선택자가 될 수는 있음 ! -->
+    <div class="container">
+      <!-- container : 큰 구조 -->
+      <div class="photos">
+        <!-- 사진이 들어가는 영역 -->
+        <div
+          id="img1"
+          class="photo-frame"
+          onmouseover="hideText(1)"
+          onmouseout="showText(1)"
+          onclick="alertText(1)"
+        >
+          <!-- 사진 4개는 각각의 id 부여 -->
+          <!-- 하나의 포토프레임 안에 들어가므로 class로 묶음 -->
+          <span id="desc1" class="photo-description">
+            <!-- 이미지 설명을 위한 span 태그 ! 하나의 class 안에 4개의 id -->
+            <!-- 보튼 설명글 같은거는 span -->
+            잠마니
+          </span>
+        </div>
+        <div
+          id="img2"
+          class="photo-frame"
+          onmouseover="hideText(2)"
+          onmouseout="showText(2)"
+          onclick="alertText(2)"
+        >
+          <span id="desc2" class="photo-description"> 메타메타몽몽</span>
+        </div>
+        <div
+          id="img3"
+          class="photo-frame"
+          onmouseover="hideText(3)"
+          onmouseout="showText(3)"
+          onclick="alertText(3)"
+        >
+          <span id="desc3" class="photo-description"> 고라파독 </span>
+        </div>
+        <div
+          id="img4"
+          class="photo-frame"
+          onmouseover="hideText(4)"
+          onmouseout="showText(4)"
+          onclick="alertText(4)"
+        >
+          <span id="desc4" class="photo-description"> 넌내꼬야</span>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="f-title">
+          <!--p 태그는 문단 태그  -->
+          포켓네컷
+        </p>
+        <p class="f-date">2023.02.07</p>
+        <a
+          class="iconDesc"
+          href="https://www.flaticon.com/kr/free-icons/"
+          title="포켓몬 아이콘"
+          >포켓몬 아이콘 제작자: Darius Dan - Flaticon</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
