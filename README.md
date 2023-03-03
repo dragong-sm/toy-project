@@ -18,7 +18,7 @@
   - 메인 화면 ( 글 작성 버튼, 글 목록, 글 확인 화면 )
   - 글 확인 화면 ( 글 내용 칸, 댓글 목록, 댓글 내용 입력 칸, 댓글 작성 완료 버튼)
   
-  ### 4. overwatch-hero-selector : 오버워치 캐릭터 선택 화면
+### 4. overwatch-hero-selector : 오버워치 캐릭터 선택 화면
 * vanilla 코딩 (html, css 활용)
 * hero image에 hover 효과 구현
   - background-color & scale 변화
