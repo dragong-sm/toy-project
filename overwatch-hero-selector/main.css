@@ -1,0 +1,186 @@
+/* container의 부모 ! 최상위 태그 */
+body {
+  /* 가로는 알아서 최대한 늘어남 */
+  width: auto;
+  /* 화면에 보이는 전체 영역을 윟 height : 100vh */
+  height: 100vh;
+  background-image: url("./images/bg.jpg");
+  /* 더 넓은 너비에 맞춰서 bg-image 설정 */
+  background-size: cover;
+  /* 반복 x */
+  background-repeat: no-repeat;
+  /* 배경의 스크롤 특성 : 배경 이미지 고정*/
+  background-attachment: fixed;
+}
+
+.container {
+  padding: 50px 0;
+}
+
+.container .heroes {
+  max-width: 700px;
+  /* 수평정렬 */
+  display: flex;
+  /* 묶음 o */
+  flex-wrap: wrap;
+  /* 수평 중간 정렬 */
+  justify-content: center;
+  /* heroes container를 가운데 정렬하기 위해 auto */
+  /* block요소이며, 가로 사이즈가 명시 되어 있어야 함 ! */
+  margin: auto;
+  padding: 40px 20px;
+  /* background-color: orange; */
+}
+
+.container .heroes .hero {
+  width: 80px;
+  height: 84px;
+  margin: 4px;
+  border: 3px solid white;
+  /* 모서리 둥글게 */
+  border-radius: 10px;
+  /* 크기 커지지 않도록 하기 */
+  box-sizing: border-box;
+  background-color: #555;
+  /* 넘침제어 */
+  overflow: hidden;
+  /* -14도 만큼 기울임 */
+  transform: skewX(-14deg);
+  /* 크기와 배경색에 자연스럽게 효과 전환 넣기 */
+  transition: transform 0.1s, background-color 0.6s;
+}
+
+.container .heroes .hero:hover {
+  /* hover 시, 백그라운드 색상 변경 */
+  background-color: #ff9c00;
+  /* hover하면, scale로 1.3베 크기 키우기 */
+  /* 원래 요소에 기울임이 있다면, 함께 적어주기 ! */
+  transform: scale(1.3) skewX(-14deg);
+  /* 해당 요소가 제일 앞으로 오도록 하기 */
+  z-index: 1;
+}
+
+.container .heroes .hero .image {
+  width: 140%;
+  height: 100%;
+  /* 이미지를 가운데에 놓음 */
+  background-position: center;
+  /* 이미지 반복없애기 */
+  background-repeat: no-repeat;
+  background-size: 90px;
+  /* 부모 요소가 -14도 만큼 기울어져서 이미지도 기울어짐 */
+  /* 따라서 반댓값을 입력하여 되돌림 */
+  /* 이미지가 오른쪽에 붙어있는 것 같아서 x축으로 -16만큼 이동  */
+  transform: skewX(14deg) translateX(-13px);
+}
+
+.container .heroes .hero:nth-child(1) .image {
+  background-image: url("./images/hero1.png");
+}
+.container .heroes .hero:nth-child(2) .image {
+  background-image: url("./images/hero2.png");
+}
+.container .heroes .hero:nth-child(3) .image {
+  background-image: url("./images/hero3.png");
+}
+.container .heroes .hero:nth-child(4) .image {
+  background-image: url("./images/hero4.png");
+}
+.container .heroes .hero:nth-child(5) .image {
+  background-image: url("./images/hero5.png");
+}
+.container .heroes .hero:nth-child(6) .image {
+  background-image: url("./images/hero6.png");
+}
+.container .heroes .hero:nth-child(7) .image {
+  background-image: url("./images/hero7.png");
+}
+.container .heroes .hero:nth-child(8) .image {
+  background-image: url("./images/hero8.png");
+}
+.container .heroes .hero:nth-child(9) .image {
+  background-image: url("./images/hero9.png");
+}
+.container .heroes .hero:nth-child(10) .image {
+  background-image: url("./images/hero10.png");
+}
+.container .heroes .hero:nth-child(11) .image {
+  background-image: url("./images/hero11.png");
+}
+.container .heroes .hero:nth-child(12) .image {
+  background-image: url("./images/hero12.png");
+}
+.container .heroes .hero:nth-child(13) .image {
+  background-image: url("./images/hero13.png");
+}
+.container .heroes .hero:nth-child(14) .image {
+  background-image: url("./images/hero14.png");
+}
+.container .heroes .hero:nth-child(15) .image {
+  background-image: url("./images/hero15.png");
+}
+.container .heroes .hero:nth-child(16) .image {
+  background-image: url("./images/hero16.png");
+}
+.container .heroes .hero:nth-child(17) .image {
+  background-image: url("./images/hero17.png");
+}
+.container .heroes .hero:nth-child(18) .image {
+  background-image: url("./images/hero18.png");
+}
+.container .heroes .hero:nth-child(19) .image {
+  background-image: url("./images/hero19.png");
+}
+.container .heroes .hero:nth-child(20) .image {
+  background-image: url("./images/hero20.png");
+}
+.container .heroes .hero:nth-child(21) .image {
+  background-image: url("./images/hero21.png");
+}
+.container .heroes .hero:nth-child(22) .image {
+  background-image: url("./images/hero22.png");
+}
+.container .heroes .hero:nth-child(23) .image {
+  background-image: url("./images/hero23.png");
+}
+.container .heroes .hero:nth-child(24) .image {
+  background-image: url("./images/hero24.png");
+}
+.container .heroes .hero:nth-child(25) .image {
+  background-image: url("./images/hero25.png");
+}
+.container .heroes .hero:nth-child(26) .image {
+  background-image: url("./images/hero26.png");
+}
+.container .heroes .hero:nth-child(27) .image {
+  background-image: url("./images/hero27.png");
+}
+.container .heroes .hero:nth-child(28) .image {
+  background-image: url("./images/hero28.png");
+}
+.container .heroes .hero:nth-child(29) .image {
+  background-image: url("./images/hero29.png");
+}
+.container .heroes .hero:nth-child(30) .image {
+  background-image: url("./images/hero30.png");
+}
+.container .heroes .hero:nth-child(31) .image {
+  background-image: url("./images/hero31.png");
+}
+.container .heroes .hero:nth-child(32) .image {
+  background-image: url("./images/hero32.png");
+}
+
+/* 로고 설정 */
+.container .logo {
+  max-width: 300px;
+  /* 로고 가운데 정렬 */
+  margin: 0 auto;
+  /* 좌우만 내부여백 설정 */
+  padding: 0 20px;
+}
+
+.container .logo img {
+  /* 이미지를 부모요소의 최대 크기 300px에 맞게 출력 */
+  width: 100%;
+}
