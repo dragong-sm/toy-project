@@ -22,6 +22,9 @@
 * vanilla 코딩 (html, css 활용)
 * hero image에 hover 효과 구현
   - background-color & scale 변화
+* transition 을 통해 자연스러운 변환 효과 지정
+ - transition: transform 0.1s, background-color 0.6s;
 * transform 사용
   - skewX 이용하여 이미지 기울임
   
+<img src="https://user-images.githubusercontent.com/117700630/222671168-d735d191-31bc-451c-948d-02eaafad3e71.png" width="400" height="350"></center>
